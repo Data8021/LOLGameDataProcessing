@@ -1,4 +1,5 @@
 ## Code to Pull out high level game information
+library(dplyr)
 
 ## Load raw game details
 load("fullGameList.Rda")
@@ -116,6 +117,32 @@ for (i in 1:1386) {
   }
 
 }
+
+## Convert fields to factors
+allGameData$t1Win = as.factor(allGameData$t1Win)
+allGameData$t1FirstBlood = as.factor(allGameData$t1FirstBlood)
+allGameData$t1FirstTower = as.factor(allGameData$t1FirstTower) 
+allGameData$t1FirstInhibitor = as.factor(allGameData$t1FirstInhibitor)
+allGameData$t1FirstBaron = as.factor(allGameData$t1FirstBaron)
+allGameData$t1FirstDragon = as.factor(allGameData$t1FirstDragon)
+allGameData$t1FirstRiftHerald = as.factor(allGameData$t1FirstRiftHerald)
+allGameData$t2Win = as.factor(allGameData$t2Win)
+allGameData$t2FirstBlood = as.factor(allGameData$t2FirstBlood)
+allGameData$t2FirstTower = as.factor(allGameData$t2FirstTower) 
+allGameData$t2FirstInhibitor = as.factor(allGameData$t2FirstInhibitor)
+allGameData$t2FirstBaron = as.factor(allGameData$t2FirstBaron)
+allGameData$t2FirstDragon = as.factor(allGameData$t2FirstDragon)
+allGameData$t2FirstRiftHerald = as.factor(allGameData$t2FirstRiftHerald)
+
+## Calculate difference between team 1 and team 2
+allGameData = mutate(allGameData,
+                     diffTowerKills = t1TowerKills - t2TowerKills,
+                     diffInhibitorKills = t1InhibitorKills - t2InhibitorKills,
+                     diffBaronKills = t1BaronKills - t2BaronKills,
+                     diffDragonKills = t1DragonKills - t2DragonKills,
+                     diffVilemawKills = t1VilemawKills - t2VilemawKills,
+                     diffRiftHeraldKills = t1RiftHeraldKills - t2RiftHeraldKills,
+                     diffDominionVictoryScore = t1DominionVictoryScore - t2DominionVictoryScore)
 
 ## Save game data
 save(allGameData, file="allGameData.Rda")
