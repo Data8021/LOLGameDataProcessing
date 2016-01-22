@@ -2,7 +2,7 @@
 library(dplyr)
 
 ## Load raw game details
-load("fullGameList.Rda")
+load("data/fullGameList.Rda")
 
 ## Initialize data frame
 allGameData <- data.frame(gameHash = as.character(),
@@ -145,4 +145,4 @@ allGameData = mutate(allGameData,
                      diffDominionVictoryScore = t1DominionVictoryScore - t2DominionVictoryScore)
 
 ## Save game data
-save(allGameData, file="allGameData.Rda")
+save(allGameData, file="data/allGameData.Rda")
