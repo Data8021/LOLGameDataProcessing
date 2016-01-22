@@ -116,6 +116,52 @@ for (i in 1:1386) {
     allGameData[i, "t2RiftHeraldKills"] <- NA
   }
 
+  ## Load player names
+  allGameData[i, "team1player1Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[1]]
+  allGameData[i, "team1player2Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[2]]
+  allGameData[i, "team1player3Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[3]]
+  allGameData[i, "team1player4Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[4]]
+  allGameData[i, "team1player5Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[5]]
+  allGameData[i, "team2player1Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[6]]
+  allGameData[i, "team2player2Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[7]]
+  allGameData[i, "team2player3Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[8]]
+  allGameData[i, "team2player4Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[9]]
+  allGameData[i, "team2player5Name"] <- fullGameList[[i]][["participantIdentities"]][["player"]][[1]][[10]]
+  
+  ## Load player champion
+  allGameData[i, "team1player1Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[1]]
+  allGameData[i, "team1player2Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[2]]
+  allGameData[i, "team1player3Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[3]]
+  allGameData[i, "team1player4Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[4]]
+  allGameData[i, "team1player5Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[5]]
+  allGameData[i, "team2player1Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[6]]
+  allGameData[i, "team2player2Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[7]]
+  allGameData[i, "team2player3Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[8]]
+  allGameData[i, "team2player4Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[9]]
+  allGameData[i, "team2player5Champion"] <- fullGameList[[i]][["participants"]][["championId"]][[10]]
+
+  ## Load player spells
+  allGameData[i, "team1player1Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[1]]
+  allGameData[i, "team1player2Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[2]]
+  allGameData[i, "team1player3Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[3]]
+  allGameData[i, "team1player4Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[4]]
+  allGameData[i, "team1player5Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[5]]
+  allGameData[i, "team2player1Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[6]]
+  allGameData[i, "team2player2Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[7]]
+  allGameData[i, "team2player3Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[8]]
+  allGameData[i, "team2player4Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[9]]
+  allGameData[i, "team2player5Spell1"] <- fullGameList[[i]][["participants"]][["spell1Id"]][[10]]
+  
+  allGameData[i, "team1player1Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[1]]
+  allGameData[i, "team1player2Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[2]]
+  allGameData[i, "team1player3Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[3]]
+  allGameData[i, "team1player4Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[4]]
+  allGameData[i, "team1player5Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[5]]
+  allGameData[i, "team2player1Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[6]]
+  allGameData[i, "team2player2Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[7]]
+  allGameData[i, "team2player3Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[8]]
+  allGameData[i, "team2player4Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[9]]
+  allGameData[i, "team2player5Spell2"] <- fullGameList[[i]][["participants"]][["spell2Id"]][[10]]
 }
 
 ## Convert fields to factors

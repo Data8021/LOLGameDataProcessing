@@ -37,13 +37,16 @@ fullGameList[[i]][["gameMode"]] ## Unnecesary
 fullGameList[[i]][["gameType"]] ## Unnecesary
 
 
-typeMetrics <- vector()
+teamTest <- vector()
 
 for (i in 1:length(fullGameList)) {
   
-  tempType <- names(fullGameList[[i]][["teams"]])
-  typeMetrics <- c(typeMetrics, tempType)
-  
+  testTeam <- fullGameList[[i]][["participants"]][["teamId"]][1:5]
+  if (all(testTeam == 100)) {
+    teamTest[i] <- "Good"
+  } else {
+    teamTest[i] <- "Bad"
+  }
   
 }
 
