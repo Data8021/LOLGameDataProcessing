@@ -37,6 +37,19 @@ fullGameList[[i]][["gameMode"]] ## Unnecesary
 fullGameList[[i]][["gameType"]] ## Unnecesary
 
 
+names(fullGameList[[i]][["participants"]])
+names(fullGameList[[i]][["participants"]][["stats"]])
+
+pStats <- fullGameList[[i]][["participants"]][["stats"]]
+
+fullGameList[[i]][["participants"]][["stats"]][["participantId"]]
+
+
+
+
+
+
+
 teamTest <- vector()
 
 for (i in 1:length(fullGameList)) {
