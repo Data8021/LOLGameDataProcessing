@@ -97,7 +97,7 @@ for (i in 1:length(fullGameList)) {
   
 }
 
-LanesTest <- data.frame(player1Lane = as.character(),
+lanesTest <- data.frame(player1Lane = as.character(),
                              player2Lane = as.character(),
                              player3Lane = as.character(),
                              player4Lane = as.character(),
@@ -107,23 +107,26 @@ LanesTest <- data.frame(player1Lane = as.character(),
 for (i in 1:length(fullGameList)) {
   
   
-  LanesTemp <- data.frame(player1Lane = as.character(),
+  lanesTemp <- data.frame(player1Lane = as.character(),
                           player2Lane = as.character(),
                           player3Lane = as.character(),
                           player4Lane = as.character(),
                           player5Lane = as.character(),
                           stringsAsFactors = FALSE)
   
-  LanesTemp[1, "player1Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[1]]
-  LanesTemp[1, "player2Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[2]]
-  LanesTemp[1, "player3Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[3]]
-  LanesTemp[1, "player4Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[4]]
-  LanesTemp[1, "player5Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[5]]
-  LanesTemp[2, "player1Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[6]]
-  LanesTemp[2, "player2Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[7]]
-  LanesTemp[2, "player3Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[8]]
-  LanesTemp[2, "player4Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[9]]
-  LanesTemp[2, "player5Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[10]]
+  lanesTemp[1, "player1Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[1]]
+  lanesTemp[1, "player2Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[2]]
+  lanesTemp[1, "player3Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[3]]
+  lanesTemp[1, "player4Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[4]]
+  lanesTemp[1, "player5Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[5]]
+  lanesTemp[2, "player1Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[6]]
+  lanesTemp[2, "player2Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[7]]
+  lanesTemp[2, "player3Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[8]]
+  lanesTemp[2, "player4Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[9]]
+  lanesTemp[2, "player5Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[10]]
 
-  LanesTest <- rbind(LanesTest, LanesTemp)
+  lanesTest <- rbind(lanesTest, lanesTemp)
 }
+
+save(lanesTest, file="data/lanesTest.Rda")
+save(rolesLanesTest, file="data/rolesLanesTest.Rda")
