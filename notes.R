@@ -43,23 +43,51 @@ names(fullGameList[[i]][["participants"]][["stats"]])
 pStats <- fullGameList[[i]][["participants"]][["stats"]]
 
 fullGameList[[i]][["participants"]][["stats"]][["participantId"]]
+allGameData[[i, "masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[1]]
+fullGameList[[i]][["participants"]][["runes"]][[1]]
+yTest <- fullGameList[[i]][["participants"]][["runes"]][[1]]
 
 
 
-
-
-
-
-teamTest <- vector()
+masteriesRunesTest <- data.frame(numMasteries = as.numeric(),
+                                 numRunes = as.numeric())
 
 for (i in 1:length(fullGameList)) {
   
-  testTeam <- fullGameList[[i]][["participants"]][["teamId"]][1:5]
-  if (all(testTeam == 100)) {
-    teamTest[i] <- "Good"
-  } else {
-    teamTest[i] <- "Bad"
+  masteriesRunesTemp <- data.frame(numMasteries = as.numeric(),
+                                   numRunes = as.numeric())
+  
+  if ("masteries" %in% names(fullGameList[[i]][["participants"]])) {
+  
+    for (j in 1:10) {
+      
+      if (!is.null(fullGameList[[i]][["participants"]][["masteries"]][[j]])) {
+        masteriesRunesTemp[j, 1] <- nrow(fullGameList[[i]][["participants"]][["masteries"]][[j]])
+      }
+      
+      if (!is.null(fullGameList[[i]][["participants"]][["runes"]][[j]])) {
+        masteriesRunesTemp[j, 2] <- nrow(fullGameList[[i]][["participants"]][["runes"]][[j]])
+      }
+      
+    }  
+    
   }
+  
+  masteriesRunesTest <- rbind(masteriesRunesTest, masteriesRunesTemp)
   
 }
 
+allGameData <- data.frame(gameHash = as.character(),
+                          gameId = as.numeric(),
+                          platformId = as.character(),
+                          gameCreation = as.numeric(),
+                          gameDuration = as.numeric(),
+                          queueId = as.numeric(),
+                          mapId = as.numeric(),
+                          seasonId = as.numeric(),
+                          gameVersion = as.numeric(),
+                          gameMode = as.character(),
+                          gameType = as.character(),
+                          t1Win = as.character(),
+                          masteries = I(list()),
+                          stringsAsFactors = FALSE)

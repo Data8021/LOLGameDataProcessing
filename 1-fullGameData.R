@@ -31,8 +31,6 @@ extractPlayerData <- function(num = i, name, firstLink, secondLink, thirdLink = 
     
 }
 
-
-
 ## Load raw game details
 load("data/fullGameList.Rda")
 
@@ -116,6 +114,26 @@ allGameData <- data.frame(gameHash = as.character(),
                           team2player3Spell2 = as.numeric(),
                           team2player4Spell2 = as.numeric(),
                           team2player5Spell2 = as.numeric(),
+                          team1player1Masteries = I(list()),
+                          team1player2Masteries = I(list()),
+                          team1player3Masteries = I(list()),
+                          team1player4Masteries = I(list()),
+                          team1player5Masteries = I(list()),
+                          team2player1Masteries = I(list()),
+                          team2player2Masteries = I(list()),
+                          team2player3Masteries = I(list()),
+                          team2player4Masteries = I(list()),
+                          team2player5Masteries = I(list()),
+                          team1player1Runes = I(list()),
+                          team1player2Runes = I(list()),
+                          team1player3Runes = I(list()),
+                          team1player4Runes = I(list()),
+                          team1player5Runes = I(list()),
+                          team2player1Runes = I(list()),
+                          team2player2Runes = I(list()),
+                          team2player3Runes = I(list()),
+                          team2player4Runes = I(list()),
+                          team2player5Runes = I(list()),
                           team1player1Item0 = as.numeric(),
                           team1player2Item0 = as.numeric(),
                           team1player3Item0 = as.numeric(),
@@ -797,6 +815,29 @@ for (i in 1:1386) {
                     firstLink = "participants",
                     secondLink = "spell2Id")
 
+  ## Load masteries and runes
+  allGameData[[i, "team1player1Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[1]]
+  allGameData[[i, "team1player2Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[2]]
+  allGameData[[i, "team1player3Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[3]]
+  allGameData[[i, "team1player4Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[4]]
+  allGameData[[i, "team1player5Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[5]]
+  allGameData[[i, "team2player1Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[6]]
+  allGameData[[i, "team2player2Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[7]]
+  allGameData[[i, "team2player3Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[8]]
+  allGameData[[i, "team2player4Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[9]]
+  allGameData[[i, "team2player5Masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[10]]
+  
+  allGameData[[i, "team1player1Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[1]]
+  allGameData[[i, "team1player2Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[2]]
+  allGameData[[i, "team1player3Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[3]]
+  allGameData[[i, "team1player4Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[4]]
+  allGameData[[i, "team1player5Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[5]]
+  allGameData[[i, "team2player1Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[6]]
+  allGameData[[i, "team2player2Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[7]]
+  allGameData[[i, "team2player3Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[8]]
+  allGameData[[i, "team2player4Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[9]]
+  allGameData[[i, "team2player5Runes"]] <- fullGameList[[i]][["participants"]][["runes"]][[10]]
+  
   ## Load player items
   extractPlayerData(num = i,
                     name = "Item0",
