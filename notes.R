@@ -130,3 +130,8 @@ for (i in 1:length(fullGameList)) {
 
 save(lanesTest, file="data/lanesTest.Rda")
 save(rolesLanesTest, file="data/rolesLanesTest.Rda")
+
+
+# What do we do with lanes/roles?
+
+# What are the best transformations.
