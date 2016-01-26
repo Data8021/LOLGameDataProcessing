@@ -36,16 +36,18 @@ fullGameList[[i]][["gameVersion"]] ## Not sure how to handle yet
 fullGameList[[i]][["gameMode"]] ## Unnecesary
 fullGameList[[i]][["gameType"]] ## Unnecesary
 
-
+names(fullGameList[[i]])
+names(fullGameList[[i]][["teams"]])
 names(fullGameList[[i]][["participants"]])
 names(fullGameList[[i]][["participants"]][["stats"]])
+names(fullGameList[[1]][["participants"]][["timeline"]])
 
-pStats <- fullGameList[[i]][["participants"]][["stats"]]
+timelineD <- fullGameList[[i]][["participants"]][["timeline"]]
 
 fullGameList[[i]][["participants"]][["stats"]][["participantId"]]
 allGameData[[i, "masteries"]] <- fullGameList[[i]][["participants"]][["masteries"]][[1]]
 fullGameList[[i]][["participants"]][["runes"]][[1]]
-yTest <- fullGameList[[i]][["participants"]][["runes"]][[1]]
+yTest <- fullGameList[[i]][["participants"]][["timeline"]][["creepsPerMinDeltas"]][1, "10-20"]
 
 
 
@@ -77,17 +79,51 @@ for (i in 1:length(fullGameList)) {
   
 }
 
-allGameData <- data.frame(gameHash = as.character(),
-                          gameId = as.numeric(),
-                          platformId = as.character(),
-                          gameCreation = as.numeric(),
-                          gameDuration = as.numeric(),
-                          queueId = as.numeric(),
-                          mapId = as.numeric(),
-                          seasonId = as.numeric(),
-                          gameVersion = as.numeric(),
-                          gameMode = as.character(),
-                          gameType = as.character(),
-                          t1Win = as.character(),
-                          masteries = I(list()),
+
+
+creepMinTest <- vector()
+
+for (i in 1:length(fullGameList)) {
+  
+  print(names(fullGameList[[i]][["participants"]][["timeline"]][["creepsPerMinDeltas"]]))
+  
+}
+
+timelineTest <- vector()
+
+for (i in 1:length(fullGameList)) {
+  
+  timelineTest[i] <- length(names(fullGameList[[i]][["participants"]][["timeline"]]))
+  
+}
+
+LanesTest <- data.frame(player1Lane = as.character(),
+                             player2Lane = as.character(),
+                             player3Lane = as.character(),
+                             player4Lane = as.character(),
+                             player5Lane = as.character(),
+                             stringsAsFactors = FALSE)
+
+for (i in 1:length(fullGameList)) {
+  
+  
+  LanesTemp <- data.frame(player1Lane = as.character(),
+                          player2Lane = as.character(),
+                          player3Lane = as.character(),
+                          player4Lane = as.character(),
+                          player5Lane = as.character(),
                           stringsAsFactors = FALSE)
+  
+  LanesTemp[1, "player1Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[1]]
+  LanesTemp[1, "player2Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[2]]
+  LanesTemp[1, "player3Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[3]]
+  LanesTemp[1, "player4Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[4]]
+  LanesTemp[1, "player5Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[5]]
+  LanesTemp[2, "player1Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[6]]
+  LanesTemp[2, "player2Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[7]]
+  LanesTemp[2, "player3Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[8]]
+  LanesTemp[2, "player4Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[9]]
+  LanesTemp[2, "player5Lane"] <- fullGameList[[i]][["participants"]][["timeline"]][["lane"]][[10]]
+
+  LanesTest <- rbind(LanesTest, LanesTemp)
+}

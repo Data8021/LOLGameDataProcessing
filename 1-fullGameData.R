@@ -31,6 +31,75 @@ extractPlayerData <- function(num = i, name, firstLink, secondLink, thirdLink = 
     
 }
 
+
+extractTimelineData <- function(num = i, name, link){
+  
+  ## Test to see if variable present
+  if (link %in% names(fullGameList[[num]][["participants"]][["timeline"]])){
+    
+    ## Load 0-10 data
+    allGameData[num, paste0("team1player1", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][1, "0-10"]
+    allGameData[num, paste0("team1player2", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][2, "0-10"]
+    allGameData[num, paste0("team1player3", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][3, "0-10"]
+    allGameData[num, paste0("team1player4", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][4, "0-10"]
+    allGameData[num, paste0("team1player5", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][5, "0-10"]
+    allGameData[num, paste0("team2player1", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][6, "0-10"]
+    allGameData[num, paste0("team2player2", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][7, "0-10"]
+    allGameData[num, paste0("team2player3", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][8, "0-10"]
+    allGameData[num, paste0("team2player4", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][9, "0-10"]
+    allGameData[num, paste0("team2player5", name, "0to10")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][10, "0-10"]
+    
+    ## Load 10-20 data
+    allGameData[num, paste0("team1player1", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][1, "10-20"]
+    allGameData[num, paste0("team1player2", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][2, "10-20"]
+    allGameData[num, paste0("team1player3", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][3, "10-20"]
+    allGameData[num, paste0("team1player4", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][4, "10-20"]
+    allGameData[num, paste0("team1player5", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][5, "10-20"]
+    allGameData[num, paste0("team2player1", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][6, "10-20"]
+    allGameData[num, paste0("team2player2", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][7, "10-20"]
+    allGameData[num, paste0("team2player3", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][8, "10-20"]
+    allGameData[num, paste0("team2player4", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][9, "10-20"]
+    allGameData[num, paste0("team2player5", name, "10to20")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][10, "10-20"]
+    
+    ## Test for 20-30
+    if (length(names(fullGameList[[num]][["participants"]][["timeline"]][[link]])) > 2){
+      
+      ## Load 20-30 data
+      allGameData[num, paste0("team1player1", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][1, "20-30"]
+      allGameData[num, paste0("team1player2", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][2, "20-30"]
+      allGameData[num, paste0("team1player3", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][3, "20-30"]
+      allGameData[num, paste0("team1player4", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][4, "20-30"]
+      allGameData[num, paste0("team1player5", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][5, "20-30"]
+      allGameData[num, paste0("team2player1", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][6, "20-30"]
+      allGameData[num, paste0("team2player2", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][7, "20-30"]
+      allGameData[num, paste0("team2player3", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][8, "20-30"]
+      allGameData[num, paste0("team2player4", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][9, "20-30"]
+      allGameData[num, paste0("team2player5", name, "20to30")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][10, "20-30"]
+      
+    }
+    
+    ## Test for 30-end
+    if (length(names(fullGameList[[num]][["participants"]][["timeline"]][[link]])) > 3){
+      
+      ## Load 20-30 data
+      allGameData[num, paste0("team1player1", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][1, "30-end"]
+      allGameData[num, paste0("team1player2", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][2, "30-end"]
+      allGameData[num, paste0("team1player3", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][3, "30-end"]
+      allGameData[num, paste0("team1player4", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][4, "30-end"]
+      allGameData[num, paste0("team1player5", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][5, "30-end"]
+      allGameData[num, paste0("team2player1", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][6, "30-end"]
+      allGameData[num, paste0("team2player2", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][7, "30-end"]
+      allGameData[num, paste0("team2player3", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][8, "30-end"]
+      allGameData[num, paste0("team2player4", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][9, "30-end"]
+      allGameData[num, paste0("team2player5", name, "30toend")] <<- fullGameList[[num]][["participants"]][["timeline"]][[link]][10, "30-end"]
+      
+    }
+    
+    
+  }
+  
+}
+
 ## Load raw game details
 load("data/fullGameList.Rda")
 
@@ -94,6 +163,26 @@ allGameData <- data.frame(gameHash = as.character(),
                           team2player3Champion = as.numeric(),
                           team2player4Champion = as.numeric(),
                           team2player5Champion = as.numeric(),
+                          team1player1Role = as.character(),
+                          team1player2Role = as.character(),
+                          team1player3Role = as.character(),
+                          team1player4Role = as.character(),
+                          team1player5Role = as.character(),
+                          team2player1Role = as.character(),
+                          team2player2Role = as.character(),
+                          team2player3Role = as.character(),
+                          team2player4Role = as.character(),
+                          team2player5Role = as.character(),
+                          team1player1Lane = as.character(),
+                          team1player2Lane = as.character(),
+                          team1player3Lane = as.character(),
+                          team1player4Lane = as.character(),
+                          team1player5Lane = as.character(),
+                          team2player1Lane = as.character(),
+                          team2player2Lane = as.character(),
+                          team2player3Lane = as.character(),
+                          team2player4Lane = as.character(),
+                          team2player5Lane = as.character(),
                           team1player1Spell1 = as.numeric(),
                           team1player2Spell1 = as.numeric(),
                           team1player3Spell1 = as.numeric(),
@@ -714,11 +803,291 @@ allGameData <- data.frame(gameHash = as.character(),
                           team2player3TotalScoreRank = as.numeric(),
                           team2player4TotalScoreRank = as.numeric(),
                           team2player5TotalScoreRank = as.numeric(),
+                          team1player1CreepsPerMinDeltas0to10 = as.numeric(),
+                          team1player2CreepsPerMinDeltas0to10 = as.numeric(),
+                          team1player3CreepsPerMinDeltas0to10 = as.numeric(),
+                          team1player4CreepsPerMinDeltas0to10 = as.numeric(),
+                          team1player5CreepsPerMinDeltas0to10 = as.numeric(),
+                          team2player1CreepsPerMinDeltas0to10 = as.numeric(),
+                          team2player2CreepsPerMinDeltas0to10 = as.numeric(),
+                          team2player3CreepsPerMinDeltas0to10 = as.numeric(),
+                          team2player4CreepsPerMinDeltas0to10 = as.numeric(),
+                          team2player5CreepsPerMinDeltas0to10 = as.numeric(),
+                          team1player1CreepsPerMinDeltas10to20 = as.numeric(),
+                          team1player2CreepsPerMinDeltas10to20 = as.numeric(),
+                          team1player3CreepsPerMinDeltas10to20 = as.numeric(),
+                          team1player4CreepsPerMinDeltas10to20 = as.numeric(),
+                          team1player5CreepsPerMinDeltas10to20 = as.numeric(),
+                          team2player1CreepsPerMinDeltas10to20 = as.numeric(),
+                          team2player2CreepsPerMinDeltas10to20 = as.numeric(),
+                          team2player3CreepsPerMinDeltas10to20 = as.numeric(),
+                          team2player4CreepsPerMinDeltas10to20 = as.numeric(),
+                          team2player5CreepsPerMinDeltas10to20 = as.numeric(),
+                          team1player1CreepsPerMinDeltas20to30 = as.numeric(),
+                          team1player2CreepsPerMinDeltas20to30 = as.numeric(),
+                          team1player3CreepsPerMinDeltas20to30 = as.numeric(),
+                          team1player4CreepsPerMinDeltas20to30 = as.numeric(),
+                          team1player5CreepsPerMinDeltas20to30 = as.numeric(),
+                          team2player1CreepsPerMinDeltas20to30 = as.numeric(),
+                          team2player2CreepsPerMinDeltas20to30 = as.numeric(),
+                          team2player3CreepsPerMinDeltas20to30 = as.numeric(),
+                          team2player4CreepsPerMinDeltas20to30 = as.numeric(),
+                          team2player5CreepsPerMinDeltas20to30 = as.numeric(),
+                          team1player1CreepsPerMinDeltas30toend = as.numeric(),
+                          team1player2CreepsPerMinDeltas30toend = as.numeric(),
+                          team1player3CreepsPerMinDeltas30toend = as.numeric(),
+                          team1player4CreepsPerMinDeltas30toend = as.numeric(),
+                          team1player5CreepsPerMinDeltas30toend = as.numeric(),
+                          team2player1CreepsPerMinDeltas30toend = as.numeric(),
+                          team2player2CreepsPerMinDeltas30toend = as.numeric(),
+                          team2player3CreepsPerMinDeltas30toend = as.numeric(),
+                          team2player4CreepsPerMinDeltas30toend = as.numeric(),
+                          team2player5CreepsPerMinDeltas30toend = as.numeric(),
+                          team1player1XPPerMinDeltas0to10 = as.numeric(),
+                          team1player2XPPerMinDeltas0to10 = as.numeric(),
+                          team1player3XPPerMinDeltas0to10 = as.numeric(),
+                          team1player4XPPerMinDeltas0to10 = as.numeric(),
+                          team1player5XPPerMinDeltas0to10 = as.numeric(),
+                          team2player1XPPerMinDeltas0to10 = as.numeric(),
+                          team2player2XPPerMinDeltas0to10 = as.numeric(),
+                          team2player3XPPerMinDeltas0to10 = as.numeric(),
+                          team2player4XPPerMinDeltas0to10 = as.numeric(),
+                          team2player5XPPerMinDeltas0to10 = as.numeric(),
+                          team1player1XPPerMinDeltas10to20 = as.numeric(),
+                          team1player2XPPerMinDeltas10to20 = as.numeric(),
+                          team1player3XPPerMinDeltas10to20 = as.numeric(),
+                          team1player4XPPerMinDeltas10to20 = as.numeric(),
+                          team1player5XPPerMinDeltas10to20 = as.numeric(),
+                          team2player1XPPerMinDeltas10to20 = as.numeric(),
+                          team2player2XPPerMinDeltas10to20 = as.numeric(),
+                          team2player3XPPerMinDeltas10to20 = as.numeric(),
+                          team2player4XPPerMinDeltas10to20 = as.numeric(),
+                          team2player5XPPerMinDeltas10to20 = as.numeric(),
+                          team1player1XPPerMinDeltas20to30 = as.numeric(),
+                          team1player2XPPerMinDeltas20to30 = as.numeric(),
+                          team1player3XPPerMinDeltas20to30 = as.numeric(),
+                          team1player4XPPerMinDeltas20to30 = as.numeric(),
+                          team1player5XPPerMinDeltas20to30 = as.numeric(),
+                          team2player1XPPerMinDeltas20to30 = as.numeric(),
+                          team2player2XPPerMinDeltas20to30 = as.numeric(),
+                          team2player3XPPerMinDeltas20to30 = as.numeric(),
+                          team2player4XPPerMinDeltas20to30 = as.numeric(),
+                          team2player5XPPerMinDeltas20to30 = as.numeric(),
+                          team1player1XPPerMinDeltas30toend = as.numeric(),
+                          team1player2XPPerMinDeltas30toend = as.numeric(),
+                          team1player3XPPerMinDeltas30toend = as.numeric(),
+                          team1player4XPPerMinDeltas30toend = as.numeric(),
+                          team1player5XPPerMinDeltas30toend = as.numeric(),
+                          team2player1XPPerMinDeltas30toend = as.numeric(),
+                          team2player2XPPerMinDeltas30toend = as.numeric(),
+                          team2player3XPPerMinDeltas30toend = as.numeric(),
+                          team2player4XPPerMinDeltas30toend = as.numeric(),
+                          team2player5XPPerMinDeltas30toend = as.numeric(),
+                          team1player1GoldPerMinDeltas0to10 = as.numeric(),
+                          team1player2GoldPerMinDeltas0to10 = as.numeric(),
+                          team1player3GoldPerMinDeltas0to10 = as.numeric(),
+                          team1player4GoldPerMinDeltas0to10 = as.numeric(),
+                          team1player5GoldPerMinDeltas0to10 = as.numeric(),
+                          team2player1GoldPerMinDeltas0to10 = as.numeric(),
+                          team2player2GoldPerMinDeltas0to10 = as.numeric(),
+                          team2player3GoldPerMinDeltas0to10 = as.numeric(),
+                          team2player4GoldPerMinDeltas0to10 = as.numeric(),
+                          team2player5GoldPerMinDeltas0to10 = as.numeric(),
+                          team1player1GoldPerMinDeltas10to20 = as.numeric(),
+                          team1player2GoldPerMinDeltas10to20 = as.numeric(),
+                          team1player3GoldPerMinDeltas10to20 = as.numeric(),
+                          team1player4GoldPerMinDeltas10to20 = as.numeric(),
+                          team1player5GoldPerMinDeltas10to20 = as.numeric(),
+                          team2player1GoldPerMinDeltas10to20 = as.numeric(),
+                          team2player2GoldPerMinDeltas10to20 = as.numeric(),
+                          team2player3GoldPerMinDeltas10to20 = as.numeric(),
+                          team2player4GoldPerMinDeltas10to20 = as.numeric(),
+                          team2player5GoldPerMinDeltas10to20 = as.numeric(),
+                          team1player1GoldPerMinDeltas20to30 = as.numeric(),
+                          team1player2GoldPerMinDeltas20to30 = as.numeric(),
+                          team1player3GoldPerMinDeltas20to30 = as.numeric(),
+                          team1player4GoldPerMinDeltas20to30 = as.numeric(),
+                          team1player5GoldPerMinDeltas20to30 = as.numeric(),
+                          team2player1GoldPerMinDeltas20to30 = as.numeric(),
+                          team2player2GoldPerMinDeltas20to30 = as.numeric(),
+                          team2player3GoldPerMinDeltas20to30 = as.numeric(),
+                          team2player4GoldPerMinDeltas20to30 = as.numeric(),
+                          team2player5GoldPerMinDeltas20to30 = as.numeric(),
+                          team1player1GoldPerMinDeltas30toend = as.numeric(),
+                          team1player2GoldPerMinDeltas30toend = as.numeric(),
+                          team1player3GoldPerMinDeltas30toend = as.numeric(),
+                          team1player4GoldPerMinDeltas30toend = as.numeric(),
+                          team1player5GoldPerMinDeltas30toend = as.numeric(),
+                          team2player1GoldPerMinDeltas30toend = as.numeric(),
+                          team2player2GoldPerMinDeltas30toend = as.numeric(),
+                          team2player3GoldPerMinDeltas30toend = as.numeric(),
+                          team2player4GoldPerMinDeltas30toend = as.numeric(),
+                          team2player5GoldPerMinDeltas30toend = as.numeric(),
+                          team1player1CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player2CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player3CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player4CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player5CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player1CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player2CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player3CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player4CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player5CSDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player1CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player2CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player3CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player4CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player5CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player1CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player2CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player3CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player4CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player5CSDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player1CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player2CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player3CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player4CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player5CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player1CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player2CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player3CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player4CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player5CSDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player1CSDiffPerMinDeltas30toend = as.numeric(),
+                          team1player2CSDiffPerMinDeltas30toend = as.numeric(),
+                          team1player3CSDiffPerMinDeltas30toend = as.numeric(),
+                          team1player4CSDiffPerMinDeltas30toend = as.numeric(),
+                          team1player5CSDiffPerMinDeltas30toend = as.numeric(),
+                          team2player1CSDiffPerMinDeltas30toend = as.numeric(),
+                          team2player2CSDiffPerMinDeltas30toend = as.numeric(),
+                          team2player3CSDiffPerMinDeltas30toend = as.numeric(),
+                          team2player4CSDiffPerMinDeltas30toend = as.numeric(),
+                          team2player5CSDiffPerMinDeltas30toend = as.numeric(),
+                          team1player1XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player2XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player3XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player4XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player5XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player1XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player2XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player3XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player4XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player5XPDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player1XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player2XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player3XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player4XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player5XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player1XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player2XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player3XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player4XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player5XPDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player1XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player2XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player3XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player4XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player5XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player1XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player2XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player3XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player4XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player5XPDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player1XPDiffPerMinDeltas30toend = as.numeric(),
+                          team1player2XPDiffPerMinDeltas30toend = as.numeric(),
+                          team1player3XPDiffPerMinDeltas30toend = as.numeric(),
+                          team1player4XPDiffPerMinDeltas30toend = as.numeric(),
+                          team1player5XPDiffPerMinDeltas30toend = as.numeric(),
+                          team2player1XPDiffPerMinDeltas30toend = as.numeric(),
+                          team2player2XPDiffPerMinDeltas30toend = as.numeric(),
+                          team2player3XPDiffPerMinDeltas30toend = as.numeric(),
+                          team2player4XPDiffPerMinDeltas30toend = as.numeric(),
+                          team2player5XPDiffPerMinDeltas30toend = as.numeric(),
+                          team1player1DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team1player2DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team1player3DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team1player4DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team1player5DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team2player1DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team2player2DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team2player3DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team2player4DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team2player5DamageTakenPerMinDeltas0to10 = as.numeric(),
+                          team1player1DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team1player2DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team1player3DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team1player4DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team1player5DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team2player1DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team2player2DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team2player3DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team2player4DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team2player5DamageTakenPerMinDeltas10to20 = as.numeric(),
+                          team1player1DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team1player2DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team1player3DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team1player4DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team1player5DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team2player1DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team2player2DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team2player3DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team2player4DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team2player5DamageTakenPerMinDeltas20to30 = as.numeric(),
+                          team1player1DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team1player2DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team1player3DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team1player4DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team1player5DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team2player1DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team2player2DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team2player3DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team2player4DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team2player5DamageTakenPerMinDeltas30toend = as.numeric(),
+                          team1player1DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player2DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player3DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player4DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player5DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player1DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player2DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player3DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player4DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team2player5DamageTakenDiffPerMinDeltas0to10 = as.numeric(),
+                          team1player1DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player2DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player3DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player4DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player5DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player1DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player2DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player3DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player4DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team2player5DamageTakenDiffPerMinDeltas10to20 = as.numeric(),
+                          team1player1DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player2DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player3DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player4DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player5DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player1DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player2DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player3DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player4DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team2player5DamageTakenDiffPerMinDeltas20to30 = as.numeric(),
+                          team1player1DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team1player2DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team1player3DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team1player4DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team1player5DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team2player1DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team2player2DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team2player3DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team2player4DamageTakenDiffPerMinDeltas30toend = as.numeric(),
+                          team2player5DamageTakenDiffPerMinDeltas30toend = as.numeric(),
                           stringsAsFactors = FALSE)
 
 ## Load game data from each game
-for (i in 1:1386) {
-  
+for (i in 1:length(fullGameList)) {
+
   ## Generic game data
   allGameData[i, "gameHash"] <- names(fullGameList)[i]
   allGameData[i, "gameId"] <- fullGameList[[i]][["gameId"]]
@@ -1224,6 +1593,50 @@ for (i in 1:1386) {
                     secondLink = "stats",
                     thirdLink = "totalScoreRank")
   
+  ## Load role and lane
+  extractPlayerData(num = i,
+                    name = "Role",
+                    firstLink = "participants",
+                    secondLink = "timeline",
+                    thirdLink = "role")
+  
+  extractPlayerData(num = i,
+                    name = "Lane",
+                    firstLink = "participants",
+                    secondLink = "timeline",
+                    thirdLink = "lane")
+  
+  ## Load timeline data
+  extractTimelineData(num = i,
+                      name = "CreepsPerMinDeltas",
+                      link = "creepsPerMinDeltas")
+  
+  extractTimelineData(num = i,
+                      name = "XPPerMinDeltas",
+                      link = "xpPerMinDeltas")
+  
+  extractTimelineData(num = i,
+                      name = "GoldPerMinDeltas",
+                      link = "goldPerMinDeltas")
+  
+  extractTimelineData(num = i,
+                      name = "CSDiffPerMinDeltas",
+                      link = "csDiffPerMinDeltas")
+  
+  extractTimelineData(num = i,
+                      name = "XPDiffPerMinDeltas",
+                      link = "xpDiffPerMinDeltas")
+  
+  extractTimelineData(num = i,
+                      name = "DamageTakenPerMinDeltas",
+                      link = "damageTakenPerMinDeltas")
+  
+  extractTimelineData(num = i,
+                      name = "DamageTakenDiffPerMinDeltas",
+                      link = "damageTakenDiffPerMinDeltas")
+  
+  
+  ## Track progress
   print(round((i/length(fullGameList))*100,1))  
 }
 
